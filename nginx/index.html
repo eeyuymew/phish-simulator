@@ -1,9 +1,107 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Заглушка</title>
+    <title>Предупреждение</title>
+    <style>
+      :root {
+        --primary: #e63946;
+        --bg-color: #f8f9fa;
+        --card-bg: #ffffff;
+        --text-main: #2b2d42;
+        --text-muted: #6c757d;
+      }
+
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .card {
+        background: var(--card-bg);
+        max-width: 480px;
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        padding: 40px 30px;
+        text-align: center;
+        border-top: 6px solid var(--primary);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .icon-container {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 24px;
+        background-color: rgba(230, 57, 70, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon-container svg {
+        width: 36px;
+        height: 36px;
+        fill: var(--primary);
+      }
+
+      h2 {
+        font-size: 24px;
+        margin: 0 0 16px;
+        color: var(--text-main);
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin: 0 0 16px;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .highlight {
+        font-weight: 600;
+        color: var(--text-main);
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="card">
+      <div class="icon-container">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v5h-2z"
+          />
+        </svg>
+      </div>
+      <h2>Внимание!</h2>
+      <p class="highlight">Вы перешли по учебной фишинговой ссылке.</p>
+      <p>
+        Если данное письмо вызвало подозрение - сообщите об этом в отдел
+        информационной безопасности.
+      </p>
+    </div>
+  </body>
 </html>
