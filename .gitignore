@@ -1,0 +1,11 @@
+# Игнорируем базы данных и файлы для рассылки
+tracker/data/*
+mailer/data/*
+!tracker/data/.gitkeep
+!mailer/data/.gitkeep
+
+# Игнорируем системные файлы и кэш Python
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc

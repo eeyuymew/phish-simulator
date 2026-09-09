@@ -1,0 +1,25 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "8084:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/index.html:/usr/share/nginx/html/index.html:ro
+    depends_on:
+      - tracker
+
+  tracker:
+    build: ./tracker
+    container_name: python_tracker
+    volumes:
+      - ./tracker/data:/app/data # Волюм куда будет сохраняться база данных SQLite
+    restart: unless-stopped
+
+  mailer:
+    build: ./mailer
+    container_name: mailer
+    volumes:
+      - ./mailer/data:/app/data
+    restart: unless-stopped
