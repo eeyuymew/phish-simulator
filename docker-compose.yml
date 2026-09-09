@@ -9,17 +9,25 @@ services:
       - ./nginx/index.html:/usr/share/nginx/html/index.html:ro
     depends_on:
       - tracker
+    restart: unless-stopped
 
   tracker:
     build: ./tracker
-    container_name: python_tracker
+    container_name: tracker
     volumes:
-      - ./tracker/data:/app/data # Волюм куда будет сохраняться база данных SQLite
+      - ./tracker/data:/app/data
+    environment:
+      - TZ=Asia/Yekaterinburg
     restart: unless-stopped
 
   mailer:
     build: ./mailer
     container_name: mailer
+    network_mode: host
     volumes:
       - ./mailer/data:/app/data
+      - ./mailer:/app
     restart: unless-stopped
+
+volumes:
+  tracker_data:
