@@ -1,5 +1,7 @@
 # Образ Python
 FROM python:3.11-slim
 WORKDIR /app
-# Заглушка: бесконечный процесс, чтобы контейнер не падал
-CMD ["tail", "-f", "/dev/null"]
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
