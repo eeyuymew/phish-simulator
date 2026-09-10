@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Важное уведомление безопасности</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 24px;
+      background: #f4f5f7;
+      font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    "
+  >
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center">
+          <table
+            role="presentation"
+            width="520"
+            cellpadding="0"
+            cellspacing="0"
+            style="
+              background: #ffffff;
+              border-radius: 8px;
+              border-top: 4px solid #d93025;
+              padding: 32px;
+            "
+          >
+            <tr>
+              <td>
+                <h2 style="margin: 0 0 16px; color: #202124; font-size: 20px">
+                  {{.FirstName}} {{.LastName}}, требуется действие
+                </h2>
+                <p
+                  style="
+                    margin: 0 0 16px;
+                    color: #5f6368;
+                    font-size: 14px;
+                    line-height: 1.6;
+                  "
+                >
+                  Система обнаружила попытку входа в вашу учётную запись с
+                  нового устройства. Если это были не вы, необходимо срочно
+                  подтвердить пароль вашей учётной записи, иначе доступ будет
+                  заблокирован в течение 24 часов.
+                </p>
+                <p style="margin: 0 0 24px">
+                  <a
+                    href="{{.URL}}"
+                    style="
+                      display: inline-block;
+                      background: #1a73e8;
+                      color: #ffffff;
+                      padding: 12px 28px;
+                      border-radius: 6px;
+                      font-size: 14px;
+                      text-decoration: none;
+                      font-weight: 600;
+                    "
+                  >
+                    Подтвердить учётную запись
+                  </a>
+                </p>
+                <p
+                  style="
+                    margin: 0;
+                    color: #9aa0a6;
+                    font-size: 12px;
+                    line-height: 1.5;
+                  "
+                >
+                  Письмо отправлено автоматически, отвечать на него не нужно.<br />
+                  Учётная запись: {{.Email}}
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

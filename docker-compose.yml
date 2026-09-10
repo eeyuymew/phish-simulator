@@ -20,14 +20,15 @@ services:
       - TZ=Asia/Yekaterinburg
     restart: unless-stopped
 
+  # Mailer — CLI-инструмент, в фоне не работает и при `docker compose up -d`
+  # не запускается (profiles). Рассылка:
+  #   docker compose run --rm mailer --smtp-host mail.test.ru --base-url <IP стенда>
   mailer:
     build: ./mailer
-    container_name: mailer
-    network_mode: host
+    profiles: ["cli"]
     volumes:
       - ./mailer/data:/app/data
-      - ./mailer:/app
-    restart: unless-stopped
-
-volumes:
-  tracker_data:
+    environment:
+      - TZ=Asia/Yekaterinburg
+      - BASE_URL=http://localhost:8084
+    working_dir: /app

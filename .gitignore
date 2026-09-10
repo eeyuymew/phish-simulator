@@ -1,10 +1,16 @@
-# Игнорируем базы данных и файлы для рассылки
+# Данные трекера (БД переходов) не публикуем
 tracker/data/*
-mailer/data/*
 !tracker/data/.gitkeep
-!mailer/data/.gitkeep
 
-# Игнорируем системные файлы и кэш Python
+# В mailer/data публикуем шаблон письма и users.csv как примеры,
+# но БД с выданными токенами игнорируем
+mailer/data/*
+!mailer/data/.gitkeep
+!mailer/data/letter.html
+!mailer/data/users.csv
+mailer/data/tokens.db*
+
+# Системные файлы и кэш Python
 .DS_Store
 Thumbs.db
 __pycache__/

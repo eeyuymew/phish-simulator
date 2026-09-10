@@ -1,4 +1,5 @@
 FROM python:3.11-slim
 WORKDIR /app
-COPY . .
-CMD ["tail", "-f", "/dev/null"]
+# Mailer использует только стандартную библиотеку Python
+COPY main.py .
+ENTRYPOINT ["python", "main.py"]
