@@ -32,7 +32,7 @@ services:
     image: axllent/mailpit
     container_name: mailpit
     ports:
-      - "8025:8025"   # веб-интерфейс; SMTP 1025 торчит только в сеть compose
+      - "8025:8025" # веб-интерфейс; SMTP 1025 торчит только в сеть compose
     restart: unless-stopped
 
   # Mailer — CLI-инструмент, в фоне не работает и при `docker compose up -d`
