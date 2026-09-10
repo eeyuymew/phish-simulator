@@ -30,7 +30,7 @@
 ## Быстрый старт
 
 ```bash
-git clone https://github.com/<ваш-логин>/phish-simulator.git
+git clone https://github.com/eeyuymew/phish-simulator.git
 cd phish-simulator
 docker compose up -d
 ```
