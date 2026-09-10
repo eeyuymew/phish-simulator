@@ -18,6 +18,22 @@ services:
       - ./tracker/data:/app/data
     environment:
       - TZ=Asia/Yekaterinburg
+      # Telegram-уведомления (опционально): раскомментируйте и подставьте
+      # свои значения. Без них стенд работает, уведомления просто не шлются.
+      # ВАЖНО: не коммитьте реальные токен и chat_id в репозиторий.
+      # - TG_BOT_TOKEN=<токен от @BotFather>
+      # - TG_CHAT_ID=<id вашего чата с ботом>
+    restart: unless-stopped
+
+  # Локальный почтовый сервер для демонстрации и тестов:
+  # ловит все письма и показывает их в веб-интерфейсе http://localhost:8025
+  # (наружу ничего не отправляет). Реальная рассылка на внешние адреса —
+  # через --smtp-host <реальный сервер> в mailer.
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    ports:
+      - "8025:8025"   # веб-интерфейс; SMTP 1025 торчит только в сеть compose
     restart: unless-stopped
 
   # Mailer — CLI-инструмент, в фоне не работает и при `docker compose up -d`
